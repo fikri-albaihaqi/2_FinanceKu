@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.home.HomeFragment">
+
+  <View
+    android:id="@+id/bg_purple"
+    android:layout_width="wrap_content"
+    android:layout_height="275dp"
+    android:background="@drawable/bg_purple_gradient"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+    android:id="@+id/tittle_app_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:fontFamily="@font/nunito"
+    android:text="@string/app_name"
+    android:textColor="@color/white"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <View
+    android:id="@+id/card_saldo"
+    android:layout_width="0dp"
+    android:layout_height="130dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:background="@drawable/card_saldo"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tittle_app_name" />
+
+  <TextView
+    android:id="@+id/textView5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="32dp"
+    android:fontFamily="@font/nunito"
+    android:text="@string/saldo"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="@+id/card_saldo"
+    app:layout_constraintTop_toTopOf="@+id/card_saldo" />
+
+  <TextView
+    android:id="@+id/textView6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:text="Rp. 5.060.000"
+    android:textStyle="bold"
+    android:textSize="24sp"
+    android:textColor="@color/white"
+    android:fontFamily="@font/nunito"
+    app:layout_constraintStart_toStartOf="@+id/card_saldo"
+    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+  <FrameLayout
+    android:id="@+id/frameLayout3"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="48dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:background="@drawable/dropdown_button"
+    app:layout_constraintEnd_toEndOf="@+id/card_saldo"
+    app:layout_constraintStart_toEndOf="@+id/textView6"
+    app:layout_constraintTop_toTopOf="@+id/card_saldo">
+
+    <Button
+      android:id="@+id/button_jenis_transaksi"
+      style="?android:spinnerStyle"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="10dp"
+      android:text="01 Januari 2021"
+      android:textColor="@color/black" />
+  </FrameLayout>
+
+  <View
+    android:id="@+id/card_pemasukan"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="24dp"
+    android:background="@drawable/card_pemasukan"
+    app:layout_constraintEnd_toStartOf="@+id/card_pengeluaran"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/bg_purple"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/card_saldo" />
+
+  <TextView
+    android:id="@+id/textView7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="24dp"
+    android:fontFamily="@font/nunito"
+    android:text="@string/pemasukan"
+    android:textColor="@color/white"
+    android:textSize="14sp"
+    app:layout_constraintStart_toStartOf="@+id/card_pemasukan"
+    app:layout_constraintTop_toTopOf="@+id/card_pemasukan" />
+
+  <TextView
+    android:id="@+id/textView8"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:fontFamily="@font/nunito"
+    android:text="Rp. 5.300.000"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="@+id/card_pemasukan"
+    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+  <View
+    android:id="@+id/card_pengeluaran"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:background="@drawable/card_pengeluaran"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toEndOf="@+id/card_pemasukan"
+    app:layout_constraintTop_toBottomOf="@+id/card_saldo" />
+
+  <TextView
+    android:id="@+id/textView9"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="24dp"
+    android:fontFamily="@font/nunito"
+    android:textColor="@color/white"
+    android:textSize="14sp"
+    android:text="@string/pengeluaran"
+    app:layout_constraintStart_toStartOf="@+id/card_pengeluaran"
+    app:layout_constraintTop_toTopOf="@+id/card_pengeluaran" />
+
+  <TextView
+    android:id="@+id/textView10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:fontFamily="@font/nunito"
+    android:text="Rp. 240.000"
+    android:textColor="@color/white"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="@+id/card_pengeluaran"
+    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+  <TextView
+    android:id="@+id/riwayat_transaksi"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="32dp"
+    android:fontFamily="@font/nunito"
+    android:textStyle="bold"
+    android:textColor="@color/black"
+    android:textSize="18sp"
+    android:text="@string/riwayat_transaksi"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/card_pemasukan" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:elevation="4dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/riwayat_transaksi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

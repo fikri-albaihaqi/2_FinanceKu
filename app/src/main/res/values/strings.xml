@@ -1,0 +1,32 @@
+<resources>
+  <string name="app_name">FinanceKu</string>
+  <string name="title_home">Home</string>
+  <string name="title_tambah_data">Tambah Data</string>
+  <string name="riwayat_transaksi">Riwayat Transaksi Bulan Ini</string>
+  <string name="tittle_pilih_tanggal">Pillih Tanggal</string>
+  <string name="tittle_jenis_transaksi">Jenis Transaksi</string>
+  <string name="nama_transaksi">Nama Transaksi</string>
+  <string name="jumlah_transaksi">Jumlah Pemasukan/Pengeluaran</string>
+  <string name="saldo">Saldo</string>
+  <string name="pemasukan">Pemasukan</string>
+  <string name="pengeluaran">Pengeluaran</string>
+
+  <string-array name="transaksi">
+    <item>Belanja Bulanan</item>
+    <item>Ngopi</item>
+    <item>Gaji Pokok</item>
+    <item>Uang Makan</item>
+  </string-array>
+
+  <string-array name="nominal">
+    <item>-Rp. 200.000</item>
+    <item>-Rp. 40.000</item>
+    <item>+Rp. 5.000.000</item>
+    <item>+Rp. 300.000</item>
+  </string-array>
+  
+  <string-array name="array_jenis_transaksi">
+    <item>Pemasukan</item>
+    <item>Pengeluaran</item>
+  </string-array>
+</resources>
