@@ -4,23 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.financeku.R;
 
+import java.util.ArrayList;
+
 public class HomeFragment extends Fragment {
   RecyclerView recyclerView;
+  private ArrayList<Transaksi> dataTransaksiArrayList;
 
-  String s1[], s2[];
-  int images[] = {R.drawable.pengeluaran_1, R.drawable.pengeluaran_2, R.drawable.pemasukan_1, R.drawable.pemasukan_2};
   private HomeViewModel homeViewModel;
 
   public View onCreateView(@NonNull LayoutInflater inflater,
@@ -29,15 +27,23 @@ public class HomeFragment extends Fragment {
             new ViewModelProvider(this).get(HomeViewModel.class);
     View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+    getData();
+
     recyclerView = root.findViewById(R.id.recyclerView);
+    TransaksiAdapter transaksiAdapter = new TransaksiAdapter(dataTransaksiArrayList);
 
-    s1 = getResources().getStringArray(R.array.transaksi);
-    s2 = getResources().getStringArray(R.array.nominal);
-
-    MyAdapter myAdapter = new MyAdapter(getContext(), s1, s2, images);
-    recyclerView.setAdapter(myAdapter);
+    recyclerView.setAdapter(transaksiAdapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
     return root;
+  }
+
+  private void getData() {
+    dataTransaksiArrayList = new ArrayList<>();
+
+    dataTransaksiArrayList.add(new Transaksi("Belanja Bulanan", "Rp. 200.000", R.drawable.ic_pengeluaran));
+    dataTransaksiArrayList.add(new Transaksi("Ngopi", "Rp. 40.000", R.drawable.ic_pengeluaran));
+    dataTransaksiArrayList.add(new Transaksi("Gaji Pokok", "Rp. 5.000.000", R.drawable.ic_pemasukan));
+    dataTransaksiArrayList.add(new Transaksi("Uang Makan", "Rp. 300.000", R.drawable.ic_pemasukan));
   }
 }

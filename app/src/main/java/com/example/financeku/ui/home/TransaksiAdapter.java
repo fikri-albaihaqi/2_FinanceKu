@@ -1,6 +1,5 @@
 package com.example.financeku.ui.home;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,42 +10,39 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.financeku.R;
+import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-  String data1[], data2[];
-  int images[];
-  Context context;
+public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.MyViewHolder> {
 
-  public MyAdapter(Context ct, String[] s1, String[] s2, int[] img) {
-    context = ct;
-    data1 = s1;
-    data2 = s2;
-    images = img;
+  private ArrayList<Transaksi> listData;
+
+  public TransaksiAdapter(ArrayList<Transaksi> listData) {
+    this.listData = listData;
   }
 
   @NonNull
   @Override
   public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    LayoutInflater inflater = LayoutInflater.from(context);
+    LayoutInflater inflater = LayoutInflater.from(parent.getContext());
     View view = inflater.inflate(R.layout.my_row, parent, false);
     return new MyViewHolder(view);
   }
 
   @Override
   public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-    holder.myText1.setText(data1[position]);
-    holder.myText2.setText(data2[position]);
-    holder.myImage.setImageResource(images[position]);
+    holder.myText1.setText(listData.get(position).getNamaTransaksi());
+    holder.myText2.setText(listData.get(position).getNominalTransaksi());
+    holder.myImage.setImageResource(listData.get(position).getMyImage());
   }
 
   @Override
   public int getItemCount() {
-    return images.length;
+    return (listData != null) ? listData.size() : 0;
   }
 
   public class MyViewHolder extends RecyclerView.ViewHolder {
-    TextView myText1, myText2;
-    ImageView myImage;
+    private TextView myText1, myText2;
+    private ImageView myImage;
 
     public MyViewHolder(@NonNull View itemView) {
       super(itemView);
