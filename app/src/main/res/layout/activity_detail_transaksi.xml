@@ -4,7 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".DetailTransaksi">
+  tools:context=".DetailTransaksiActivity">
 
   <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
@@ -23,7 +23,7 @@
       android:layout_height="match_parent">
 
       <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/mainImageView"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -34,22 +34,15 @@
         tools:srcCompat="@tools:sample/avatars" />
 
       <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tittleTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:text="Nama Transaksi"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/mainImageView"
         app:layout_constraintTop_toTopOf="parent" />
-
-      <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="75dp" />
 
       <TextView
         android:id="@+id/textView11"
@@ -60,10 +53,10 @@
         android:layout_marginTop="32dp"
         android:text="Nominal Transaksi"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/mainImageView" />
 
       <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/nominalTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -84,12 +77,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
       <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tanggalTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="16dp"
         android:text="11 September 2021"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
-        tools:layout_editor_absoluteX="148dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/nominalTransaksi" />
 
       <TextView
         android:id="@+id/textView13"
@@ -103,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
       <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/jenisTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -111,7 +107,7 @@
         android:layout_marginTop="16dp"
         android:text="Pengeluaran"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/tanggalTransaksi" />
 
       <TextView
         android:id="@+id/textView14"
@@ -127,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
       <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/keteranganTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -135,7 +131,7 @@
         android:layout_marginTop="16dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/jenisTransaksi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.cardview.widget.CardView>

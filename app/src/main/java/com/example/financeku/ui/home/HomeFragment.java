@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
     getData();
 
     recyclerView = root.findViewById(R.id.recyclerView);
-    TransaksiAdapter transaksiAdapter = new TransaksiAdapter(dataTransaksiArrayList);
+    TransaksiAdapter transaksiAdapter = new TransaksiAdapter(getContext(), dataTransaksiArrayList);
 
     recyclerView.setAdapter(transaksiAdapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -41,9 +41,9 @@ public class HomeFragment extends Fragment {
   private void getData() {
     dataTransaksiArrayList = new ArrayList<>();
 
-    dataTransaksiArrayList.add(new Transaksi("Belanja Bulanan", "Rp. 200.000", R.drawable.ic_pengeluaran));
-    dataTransaksiArrayList.add(new Transaksi("Ngopi", "Rp. 40.000", R.drawable.ic_pengeluaran));
-    dataTransaksiArrayList.add(new Transaksi("Gaji Pokok", "Rp. 5.000.000", R.drawable.ic_pemasukan));
-    dataTransaksiArrayList.add(new Transaksi("Uang Makan", "Rp. 300.000", R.drawable.ic_pemasukan));
+    dataTransaksiArrayList.add(new Transaksi("Belanja Bulanan", "Rp. 200.000", R.drawable.ic_pengeluaran, "Lorem Ipsum", "11 September 2021"));
+    dataTransaksiArrayList.add(new Transaksi("Ngopi", "Rp. 40.000", R.drawable.ic_pengeluaran, "Ngopi di warkop", "11 September 2021"));
+    dataTransaksiArrayList.add(new Transaksi("Gaji Pokok", "Rp. 5.000.000", R.drawable.ic_pemasukan, "Gaji bulanan", "11 September 2021"));
+    dataTransaksiArrayList.add(new Transaksi("Uang Makan", "Rp. 300.000", R.drawable.ic_pemasukan, "Lorem Ipsum", "11 September 2021"));
   }
 }
