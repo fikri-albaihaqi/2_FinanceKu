@@ -2,16 +2,19 @@ package com.example.financeku;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.financeku.ui.home.Transaksi;
+
 public class DetailTransaksiActivity extends AppCompatActivity {
   ImageView mainImageView;
-  TextView namaTransaksi, nominalTransaksi, tanggalTransaksi, keterangan;
+  TextView namaTransaksi, nominalTransaksi, tanggalTransaksi, keterangan, jenisTransaksi;
 
-  String data1, data2, data3, data4;
+  String data1, data2, data3, data4, data5;
   int myImage;
 
   @Override
@@ -24,30 +27,25 @@ public class DetailTransaksiActivity extends AppCompatActivity {
     nominalTransaksi = findViewById(R.id.nominalTransaksi);
     tanggalTransaksi = findViewById(R.id.tanggalTransaksi);
     keterangan = findViewById(R.id.keteranganTransaksi);
+    jenisTransaksi = findViewById(R.id.jenisTransaksi);
 
-    getData();
-    setData();
-  }
+    Intent intent = getIntent();
 
-  private void getData() {
-    if (getIntent().hasExtra("namaTransaksi") && getIntent().hasExtra("nominalTransaksi") &&  getIntent().hasExtra("myImage") && getIntent().hasExtra("keterangan") &&
-            getIntent().hasExtra("tanggal")) {
-      data1 = getIntent().getStringExtra("namaTransaki");
-      data2 = getIntent().getStringExtra("nominalTransaki");
-      myImage = getIntent().getIntExtra("myImage", 1);
-      data3 = getIntent().getStringExtra("keterangan");
-      data4 = getIntent().getStringExtra("tanggal");
-    } else {
-      Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
-    }
+    Transaksi transaksi = intent.getParcelableExtra("Transaksi");
 
-  }
+    myImage = transaksi.getMyImage();
+    data1 = transaksi.getNamaTransaksi();
+    data2 = transaksi.getNominalTransaksi();
+    data3 = transaksi.getTanggal();
+    data4 = transaksi.getJenisTransaksi();
+    data5 = transaksi.getKeterangan();
 
-  private void setData() {
+    mainImageView.setImageResource(myImage);
     namaTransaksi.setText(data1);
     nominalTransaksi.setText(data2);
-    mainImageView.setImageResource(myImage);
-//    tanggalTransaksi.setText(data4);
-//    keterangan.setText(data3);
+    tanggalTransaksi.setText(data3);
+    keterangan.setText(data4);
+    jenisTransaksi.setText(data5);
   }
+
 }

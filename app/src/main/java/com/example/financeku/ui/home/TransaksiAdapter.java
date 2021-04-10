@@ -18,55 +18,51 @@ import java.util.ArrayList;
 
 public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.MyViewHolder> {
 
-  private ArrayList<Transaksi> listData;
+  private ArrayList<Transaksi> dataTransaksi;
   private Context context;
 
-  public TransaksiAdapter(Context context, ArrayList<Transaksi> listData) {
-    this.context = context;
-    this.listData = listData;
+  public interface onItemClickListener {
+    void onItemClick(int position);
+  }
+
+  private onItemClickListener listener;
+
+  public void setOnItemClickListener(onItemClickListener listener) {
+    this.listener = listener;
+  }
+
+  public TransaksiAdapter(ArrayList<Transaksi> dataTransaksi) {
+    this.dataTransaksi = dataTransaksi;
   }
 
   @NonNull
   @Override
   public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-    View view = inflater.inflate(R.layout.my_row, parent, false);
-    return new MyViewHolder(view);
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_row, parent, false);
+    MyViewHolder mvh = new MyViewHolder(view, listener);
+    return mvh;
   }
 
   @Override
   public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-    holder.myText1.setText(listData.get(position).getNamaTransaksi());
-    holder.myText2.setText(listData.get(position).getNominalTransaksi());
-    holder.myImage.setImageResource(listData.get(position).getMyImage());
-//    holder.myText3.setText(listData.get(position).getKeterangan());
-//    holder.myText4.setText(listData.get(position).getTanggal());
+    Transaksi dataTransaksi = this.dataTransaksi.get(position);
+    holder.myText1.setText(dataTransaksi.getNamaTransaksi());
+    holder.myText2.setText(dataTransaksi.getNominalTransaksi());
+    holder.myImage.setImageResource(dataTransaksi.getMyImage());
 
-    holder.mainLayout.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(context, DetailTransaksiActivity.class);
-        intent.putExtra("namaTransaksi", listData.get(position).getNamaTransaksi());
-        intent.putExtra("nominalTransaksi", listData.get(position).getNominalTransaksi());
-        intent.putExtra("myImage", listData.get(position).getMyImage());
-//        intent.putExtra("keterangan", listData.get(position).getKeterangan());
-//        intent.putExtra("tanggal", listData.get(position).getTanggal());
-        context.startActivity(intent);
-      }
-    });
   }
 
   @Override
   public int getItemCount() {
-    return (listData != null) ? listData.size() : 0;
+    return dataTransaksi.size();
   }
 
-  public class MyViewHolder extends RecyclerView.ViewHolder {
-    private TextView myText1, myText2, myText3, myText4;
-    private ImageView myImage;
+  public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public TextView myText1, myText2;
+    public ImageView myImage;
     ConstraintLayout mainLayout;
 
-    public MyViewHolder(@NonNull View itemView) {
+    public MyViewHolder(@NonNull View itemView, final onItemClickListener listener) {
       super(itemView);
       myText1 = itemView.findViewById(R.id.nama_transaksi);
       myText2 = itemView.findViewById(R.id.nominal_transaksi);
@@ -74,6 +70,15 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.MyVi
       mainLayout = itemView.findViewById(R.id.mainLayout);
 //      myText3 = itemView.findViewById(R.id.keteranganTransaksi);
 //      myText4 = itemView.findViewById(R.id.tanggalTransaksi);
+//      myText2 = itemView.findViewById(R.id.jenisTransaksi);
+
+      itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          int position = getAdapterPosition();
+          listener.onItemClick(position);
+        }
+      });
     }
   }
 }
