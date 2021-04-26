@@ -2,11 +2,8 @@ package com.example.financekuv2.ui.home;
 
 import android.app.Application;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.financekuv2.Transaksi;
 
@@ -30,5 +27,9 @@ public class HomeViewModel extends AndroidViewModel {
 
   public void insert(Transaksi transaksi) {
     mRepository.insert(transaksi);
+  }
+
+  public void delete(String nama_transaksi) {
+    mRepository.delete(nama_transaksi);
   }
 }

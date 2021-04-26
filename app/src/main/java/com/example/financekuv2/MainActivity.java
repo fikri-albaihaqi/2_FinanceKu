@@ -1,17 +1,14 @@
 package com.example.financekuv2;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.example.financekuv2.ui.tambah_data.DatePickerFragment;
-import com.example.financekuv2.ui.tambah_data.TambahDataFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -62,8 +59,3 @@ public class MainActivity extends AppCompatActivity implements DatePickerFragmen
 
   }
 }
-
-//  public void showDatePickerDialog(View v) {
-//    DialogFragment newFragment = new DatePickerFragment();
-//    newFragment.show(getSupportFragmentManager(), "datePicker");
-//  }

@@ -36,4 +36,10 @@ class TransaksiRepository {
       mTransaksiDao.insert(transaksi);
     });
   }
+
+  void delete(String nama_transaksi) {
+    TransaksiRoomDatabase.databaseWriteExecutor.execute(() -> {
+      mTransaksiDao.delete(nama_transaksi);
+    });
+  }
 }

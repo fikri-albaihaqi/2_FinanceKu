@@ -1,15 +1,21 @@
 package com.example.financekuv2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.financekuv2.ui.home.HomeViewModel;
 
 public class DetailTransaksiActivity extends AppCompatActivity {
   ImageView mainImageView;
   TextView namaTransaksi, nominalTransaksi, tanggalTransaksi, keterangan, jenisTransaksi;
+  private HomeViewModel homeViewModel;
+  Button deleteButton;
 
   String data1, data3, data4, data5;
   int myImage, data2;
@@ -19,6 +25,7 @@ public class DetailTransaksiActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_detail_transaksi);
 
+    deleteButton = findViewById(R.id.buttonDelete);
     mainImageView = findViewById(R.id.mainImageView);
     namaTransaksi = findViewById(R.id.tittleTransaksi);
     nominalTransaksi = findViewById(R.id.nominalTransaksi);
@@ -43,6 +50,12 @@ public class DetailTransaksiActivity extends AppCompatActivity {
     tanggalTransaksi.setText(data3);
     keterangan.setText(data4);
     jenisTransaksi.setText(data5);
+
+    homeViewModel = new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(HomeViewModel.class);
+    deleteButton.setOnClickListener(View -> {
+      homeViewModel.delete(data1);
+      finish();
+    });
   }
 
 }
