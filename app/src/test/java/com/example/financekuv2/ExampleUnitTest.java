@@ -1,4 +1,4 @@
-package com.example.financeku;
+package com.example.financekuv2;
 
 import org.junit.Test;
 

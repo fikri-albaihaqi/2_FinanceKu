@@ -7,13 +7,13 @@
 
   <fragment
     android:id="@+id/navigation_home"
-    android:name="com.example.financeku.ui.home.HomeFragment"
+    android:name="com.example.financekuv2.ui.home.HomeFragment"
     android:label="@string/app_name"
     tools:layout="@layout/fragment_home" />
 
   <fragment
     android:id="@+id/navigation_tambah_data"
-    android:name="com.example.financeku.ui.tambah_data.TambahDataFragment"
+    android:name="com.example.financekuv2.ui.tambah_data.TambahDataFragment"
     android:label="@string/title_tambah_data"
     tools:layout="@layout/fragment_tambah_data" />
 

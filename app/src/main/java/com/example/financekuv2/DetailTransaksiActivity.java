@@ -1,4 +1,4 @@
-package com.example.financeku;
+package com.example.financekuv2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,16 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.financeku.ui.home.Transaksi;
 
 public class DetailTransaksiActivity extends AppCompatActivity {
   ImageView mainImageView;
   TextView namaTransaksi, nominalTransaksi, tanggalTransaksi, keterangan, jenisTransaksi;
 
-  String data1, data2, data3, data4, data5;
-  int myImage;
+  String data1, data3, data4, data5;
+  int myImage, data2;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +39,7 @@ public class DetailTransaksiActivity extends AppCompatActivity {
 
     mainImageView.setImageResource(myImage);
     namaTransaksi.setText(data1);
-    nominalTransaksi.setText(data2);
+    nominalTransaksi.setText(Integer.toString(data2));
     tanggalTransaksi.setText(data3);
     keterangan.setText(data4);
     jenisTransaksi.setText(data5);

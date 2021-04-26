@@ -1,16 +1,16 @@
-package com.example.financeku.ui.home;
+package com.example.financekuv2.ui.tambah_data;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class TambahDataViewModel extends ViewModel {
 
   private MutableLiveData<String> mText;
 
-  public HomeViewModel() {
+  public TambahDataViewModel() {
     mText = new MutableLiveData<>();
-    mText.setValue("This is home fragment");
+    mText.setValue("This is dashboard fragment");
   }
 
   public LiveData<String> getText() {

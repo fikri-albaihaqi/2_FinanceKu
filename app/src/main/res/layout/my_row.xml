@@ -44,6 +44,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
       <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nunito"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="Rp."
+        app:layout_constraintBaseline_toBaselineOf="@+id/nama_transaksi"
+        app:layout_constraintEnd_toStartOf="@+id/nominal_transaksi" />
+
+      <TextView
         android:id="@+id/nominal_transaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,8 +66,9 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/nama_transaksi"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
