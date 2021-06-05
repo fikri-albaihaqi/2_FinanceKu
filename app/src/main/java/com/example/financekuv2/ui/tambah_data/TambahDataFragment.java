@@ -1,30 +1,43 @@
 package com.example.financekuv2.ui.tambah_data;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.financekuv2.R;
 
+import java.io.IOException;
 import java.util.Locale;
+
+import static android.app.Activity.RESULT_OK;
 
 public class TambahDataFragment extends Fragment {
 
-  private Button dateButton, tambahData;
+  private Button dateButton, tambahData, chooseImageButton;
   private EditText inputNamaTransaksi, inputNominal, inputKeterangan;
   private TambahDataViewModel tambahDataViewModel;
   private Locale locale;
+  final int kodeGallery = 100;
+  private ImageView imageKeterangan;
 
   public View onCreateView(@NonNull LayoutInflater inflater,
                            ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +57,16 @@ public class TambahDataFragment extends Fragment {
       }
     });
 
+    chooseImageButton = root.findViewById(R.id.buttonPilihGambar);
+
+    chooseImageButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intentGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intentGallery, kodeGallery);
+      }
+    });
+
     Spinner spinner = (Spinner) root.findViewById(R.id.button_jenis_transaksi);
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.array_jenis_transaksi, android.R.layout.simple_spinner_item);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -53,6 +76,7 @@ public class TambahDataFragment extends Fragment {
     inputNamaTransaksi = root.findViewById(R.id.inputNamaTransaksi);
     inputNominal = root.findViewById(R.id.inputNominal);
     inputKeterangan = root.findViewById(R.id.inputKeterangan);
+    imageKeterangan = root.findViewById(R.id.inputImageKeterangan);
 
     inputNominal.setText("0");
 
@@ -72,5 +96,15 @@ public class TambahDataFragment extends Fragment {
     });
 
     return root;
+  }
+
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (requestCode == kodeGallery && resultCode == RESULT_OK) {
+      Uri imageUri = data.getData();
+      imageKeterangan.setImageURI(imageUri);
+    }
   }
 }

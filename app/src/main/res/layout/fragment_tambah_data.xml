@@ -170,24 +170,6 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-  <Button
-    android:id="@+id/tambahData"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginTop="24dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginRight="16dp"
-    android:background="@drawable/card_pemasukan"
-    android:fontFamily="@font/nunito"
-    android:text="@string/title_tambah_data"
-    android:textColor="@color/white"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/inputKeterangan" />
-
   <TextView
     android:id="@+id/textView19"
     android:layout_width="wrap_content"
@@ -218,5 +200,70 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+  <TextView
+    android:id="@+id/textView15"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:fontFamily="@font/nunito"
+    android:text="Keterangan Gambar"
+    android:textColor="@color/black"
+    android:textSize="14sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/inputKeterangan" />
+
+  <ImageView
+    android:id="@+id/inputImageKeterangan"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:src="@android:drawable/ic_menu_gallery"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+  <Button
+    android:id="@+id/buttonPilihGambar"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:background="@drawable/dropdown_button"
+    android:fontFamily="@font/nunito"
+    android:text="@string/pilih_gambar"
+    android:textColor="@color/black"
+    android:textSize="14sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/inputImageKeterangan" />
+
+  <Button
+    android:id="@+id/tambahData"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="28dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginRight="16dp"
+    android:background="@drawable/card_pemasukan"
+    android:fontFamily="@font/nunito"
+    android:text="@string/title_tambah_data"
+    android:textColor="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/buttonPilihGambar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

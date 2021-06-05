@@ -32,8 +32,13 @@ public class HomeFragment extends Fragment {
         int nominalTransaksi = bundle.getInt("nominalTransaksi");
         String keteranganTransaksi = bundle.getString("keteranganTransaksi");
 
-        Transaksi transaksi = new Transaksi(namaTransaksi, nominalTransaksi, R.drawable.ic_pemasukan, keteranganTransaksi, tanggalTransaksi, jenisTransaksi);
-        homeViewModel.insert(transaksi);
+        if (nominalTransaksi >= 0) {
+          Transaksi transaksi = new Transaksi(namaTransaksi, nominalTransaksi, R.drawable.ic_pemasukan, keteranganTransaksi, tanggalTransaksi, jenisTransaksi);
+          homeViewModel.insert(transaksi);
+        } else {
+          Transaksi transaksi = new Transaksi(namaTransaksi, nominalTransaksi, R.drawable.ic_pengeluaran, keteranganTransaksi, tanggalTransaksi, jenisTransaksi);
+          homeViewModel.insert(transaksi);
+        }
       }
     });
   }

@@ -12,6 +12,7 @@
   <string name="pengeluaran">Pengeluaran</string>
   <string name="pilih_tanggal">Pilih Tanggal</string>
   <string name="hapus">Hapus</string>
+  <string name="pilih_gambar">Pilih Gambar</string>
 
   <string-array name="array_jenis_transaksi">
     <item>Pemasukan</item>

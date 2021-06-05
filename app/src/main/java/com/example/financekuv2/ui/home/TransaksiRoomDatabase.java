@@ -49,6 +49,7 @@ public abstract class TransaksiRoomDatabase extends RoomDatabase {
         // Populate the database in the background.
         // If you want to start with more words, just add them.
         TransaksiDao dao = INSTANCE.transaksiDao();
+//        dao.deleteAll();
 
         Transaksi transaksi = new Transaksi("Belanja Bulanan", -200000, R.drawable.ic_pengeluaran, "Lorem Ipsum", "11 September 2021", "Pengeluaran");
         dao.insert(transaksi);
